@@ -1,9 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-interface IBoard {
-    id: string
-    title: string
-}
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { IBoard } from "../../modules/modules";
 
 const initialState: IBoard[] = [];
 
@@ -12,7 +8,8 @@ export const boardCollectionSlice = createSlice({
     initialState,
     reducers: {
         storeNewBoardToCollection(state, action) {
-            state.push(action.payload)
+            const id = nanoid();
+            state.push({title: action.payload, id, data: []})
         }
     }
 })

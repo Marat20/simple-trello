@@ -1,15 +1,16 @@
 import { CreateBoardContainer } from './boardCreation/CreateBoardContainer';
-import { Boards } from './Boards';
-import { IProps } from '../../modules/modules';
+import { Board } from './Board';
+import { IBoard } from '../../modules/modules';
+import { useAppSelector } from '../../redux/redux-hooks';
 
-export const BoardContainer = (props: IProps[]) => {
-  const { boardsCollection } = props;
+export const BoardContainer = () => {
+  const boardsCollection = useAppSelector(state => state.boardsCollection)
 
   return (
-    <div>
+    <div className='board-collection'>
       <CreateBoardContainer />
-      {boardsCollection.map((board: IProps) => (
-        <Boards key={board.id} {...board} />
+      {boardsCollection?.map((board: IBoard) => (
+        <Board key={board.id} {...board} />
       ))}
     </div>
   );

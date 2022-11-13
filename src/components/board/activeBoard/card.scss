@@ -1,0 +1,139 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.active_board-title {
+  display: flex;
+  justify-content: start;
+  padding: 10px 60px;
+  animation: fadeIn 300ms linear;
+
+  h1 {
+    color: white;
+    word-break: break-all;
+    background-color: #9fe7a4;
+    text-shadow: 0px 0px 3px #000;
+    padding: 10px 60px;
+    margin: 0 0 0 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+.card_active {
+  display: flex;
+  padding: 45px 86px 15px;
+
+  @media (width: 900px) {
+    padding: 0 20px;
+    flex-direction: column;
+  }
+
+  .card_active-editing_mode {
+    padding: 20px 12px;
+    height: 75px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.45);
+    display: flex;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .active_board-icon_close {
+    position: relative;
+    left: 30px;
+    top: -24px;
+    z-index: 9999;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    transition: all 200ms ease-in-out;
+    background-image: url('../../../media/svg/closeIcon.svg');
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &:hover {
+      transition: all 200ms ease-in-out;
+      transform: scale(1.25) rotate(4.5deg);
+    }
+  }
+}
+
+.card_creation {
+  display: flex;
+  margin: 20px;
+  background-color: #0a2c74;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+  height: 100px;
+  padding: 10px 40px;
+  align-items: center;
+  animation: fadeIn 300ms linear;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    transition: all 150ms ease-in-out;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  h4 {
+    color: white;
+    font-weight: 900;
+  }
+}
+
+.cards_list {
+  display: flex;
+}
+
+.card {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 150ms ease-in-out;
+  animation: fadeIn 300ms linear;
+
+  h4 {
+    color: #333;
+    letter-spacing: 1.66;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  .card_task {
+    margin: 10px 0;
+    padding: 14px 7px;
+    background: rgb(241, 241, 241);
+    border-radius: 4.5px;
+    cursor: grab;
+    animation: fadeIn 300ms linear;
+    display: flex;
+    justify-content: space-around;
+
+    h3 {
+      font-weight: bold;
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .card_task-done {
+      padding: 4px 7px;
+      opacity: 0.4;
+      border: none;
+      border-radius: 9999;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+}

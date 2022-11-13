@@ -1,0 +1,21 @@
+header {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 0;
+  
+  .header-icon {
+    background-image: url('../../media/svg/light.svg');
+    width: 65px;
+    height: 65px;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px 3px 3px #333);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      filter: drop-shadow(6px 6px 6px #333);
+      transition: all 200ms ease-in-out;
+      transform: scale(1.1) rotate(-4.5deg);
+    }
+  }
+}

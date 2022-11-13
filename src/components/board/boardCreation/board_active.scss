@@ -1,0 +1,106 @@
+.board_active {
+  width: 345px;
+  height: auto;
+  margin: 20px;
+  background-color: #9fe7a4;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5.5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  font-weight: 900;
+  text-shadow: 0px 0px 3px #000;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: 200ms ease-in-out;
+    transform: scale(1.1);
+  }
+
+  .board_active-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border-bottom: solid 1px rgb(240, 240, 240);
+
+    h3 {
+      color: white;
+      text-shadow: 0px 0px 3px #000;
+    }
+
+    .board_active-icon_close {
+      width: 24px;
+      height: 24px;
+      padding: 5px;
+      transition: all 200ms ease-in-out;
+      background-image: url('../../../media/svg/closeIcon.svg');
+      background-repeat: no-repeat;
+
+      &:hover {
+        transition: all 200ms ease-in-out;
+        transform: scale(1.25) rotate(4.5deg);
+      }
+    }
+  }
+
+  .board_active-body {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+    h5 {
+      color: white;
+      text-shadow: 0px 0px 3px #000;
+      font-weight: 400;
+    }
+  }
+
+  .board_active-btn_group {
+    margin: 20px 0 5px 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    .board_active-btn_cancel {
+      width: auto;
+      height: 43px;
+      margin: 15px -5px 5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+      border: none;
+      background: none;
+      color: white;
+      font-weight: 900;
+      text-shadow: 0px 0px 3px #000;
+      &:hover {
+        transition: all 200ms ease-in-out;
+        background-color: none;
+        color: #00ffc5;
+      }
+    }
+
+    .board_active-btn_create {
+      width: 114px;
+      height: 43px;
+      margin: 15px 18px 5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 250 ease-in-out;
+      border: none;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+
+      &:hover {
+        transition: all 250ms ease-in-out;
+        color: #00baff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        background-color: #dbdbdb;
+      }
+    }
+  }
+}

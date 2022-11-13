@@ -1,27 +1,23 @@
-export const ActiveCreateBoard = () => {
-  // TODO достать из стора cancelCreatingBoard
+import { useAppDispatch } from '../../../redux/redux-hooks';
+import { BoardTitleForm } from './BoardTitleForm';
+import { toggleNewBoard } from '../../../redux/slices/newBoardSlice';
 
-  const handleSubmit = (values) => {
-    this.props.submitNewBoard(values.boardTitle);
-    values.boardTitle = '';
-  };
+export const ActiveCreateBoard = () => {
+  const dispatch = useAppDispatch();
 
   return (
-    <div className='board'>
-      <div>
+    <div className='board_active'>
+      <div className='board_active-top'>
         <h3>Creating a board</h3>
-        <CloseBoardIcon
-          onClick={() => cancelCreatingBoard()}
-          src={require('../../../Assets/closeIcon.svg')}
+        <div
+          className='board_active-icon_close'
+          onClick={() => dispatch(toggleNewBoard(false))}
         />
       </div>
 
-      <div>
-        <BoardNamingTitle>What shall we call the board?</BoardNamingTitle>
-        <BoardTitleForm
-          onSubmit={this.submit}
-          cancelAction={cancelCreatingBoard}
-        />
+      <div className='board_active-body'>
+        <h5>What shall we call the board?</h5>
+        <BoardTitleForm />
       </div>
     </div>
   );

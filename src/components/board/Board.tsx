@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { IProps } from '../../modules/modules';
+import { IBoard } from '../../modules/modules';
 
-export const Boards = ({ id, title }: IProps) => {
+export const Board = ({ id, title }: IBoard) => {
   return (
     <Link to={`/board/${id}`}>
-      <div>
+      <div className='board-card'>
         <h2>{title}</h2>
       </div>
     </Link>
