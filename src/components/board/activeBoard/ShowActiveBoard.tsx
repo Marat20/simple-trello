@@ -10,9 +10,9 @@ import { useEffect } from 'react';
 export const ShowActiveBoard = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const boardCollection = useAppSelector((state) => state.boardsCollection);
+  const boardCollection = useAppSelector((state) => state.persistedReducer.boardsCollection);
   const currentBoard = boardCollection.find((item) => item.boardId === id)!;
-  const activeBoard = useAppSelector((state) => state.activeBoard);
+  const activeBoard = useAppSelector((state) => state.persistedReducer.activeBoard);
 
   useEffect(() => {
     dispatch(selectActiveBoard(currentBoard));

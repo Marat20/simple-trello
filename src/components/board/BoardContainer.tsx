@@ -4,7 +4,7 @@ import { IBoard } from '../../modules/modules';
 import { useAppSelector } from '../../redux/redux-hooks';
 
 export const BoardContainer = () => {
-  const boardsCollection = useAppSelector(state => state.boardsCollection)
+  const boardsCollection = useAppSelector(state => state.persistedReducer.boardsCollection)
 
   return (
     <div className='board-collection'>

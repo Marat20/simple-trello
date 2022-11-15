@@ -7,7 +7,7 @@ import { archiveCard } from '../../../../redux/slices/boardCollectionSlice';
 export const Card = ({ name, listId, cardId }: ICard) => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const board = useAppSelector((state) => state.boardsCollection);
+  const board = useAppSelector((state) => state.persistedReducer.boardsCollection);
   const isArchived = getCard(board, id, listId, cardId).isArchived;
 
   return (
