@@ -1,13 +1,16 @@
-import { useAppSelector } from '../../../../redux/redux-hooks';
+import { IBoard, IList } from '../../../../modules/modules';
 import { ListItem } from './ListItem';
 
-export const ListItemsContainer = () => {
-  const activeBoardData = useAppSelector((state) => state.activeBoardData);
+interface IProps {
+  currentBoard: IBoard
+}
+
+export const ListItemsContainer = ({currentBoard}: IProps) => {
 
   return (
     <div className='cards_list'>
-        {activeBoardData?.map((item) => (
-          <ListItem key={item.id} {...item} />
+        {currentBoard.data.map((item: IList) => (
+          <ListItem key={item.listId} {...item} />
         ))}
     </div>
   );

@@ -24,13 +24,13 @@ import { CreateCardContainer } from '../cards/CreateCardContainer';
 // }
 
 // @DropTarget(ItemTypes.CARD, dropSource, collect)
-export const ListItem = ({name, id, cards}:IList) => {
+export const ListItem = ({name, listId, cards}:IList) => {
 
   return (
     <div className='card'>
         <h4>{name}</h4>
         <hr />
-        <CreateCardContainer listId={id} />
+        <CreateCardContainer listId={listId} cards={cards} />
     </div>
   );
 };

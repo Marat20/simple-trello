@@ -10,7 +10,7 @@ export const BoardContainer = () => {
     <div className='board-collection'>
       <CreateBoardContainer />
       {boardsCollection?.map((board: IBoard) => (
-        <Board key={board.id} {...board} />
+        <Board key={board.boardId} {...board} />
       ))}
     </div>
   );

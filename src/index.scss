@@ -16,6 +16,15 @@ input {
   width: 200px;
 }
 
+.error {
+  color: #000;
+  text-shadow: 1px 1px 1px #fff;
+  font-weight: 400;
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 12px;
+}
+
 @import './components/notFound/not-found.scss';
 @import './components/header/header.scss';
 @import './components/board/board_collection.scss';

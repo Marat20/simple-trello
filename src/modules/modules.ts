@@ -1,18 +1,23 @@
-export interface IState {
-  boardsCollection: IBoard[]
-  newBoard: INewBoard
-  activeBoard: IActiveBoard
-  activeBoardData: []
-}
-
 export interface IBoard {
-  id: string;
+  boardId: string;
   title: string;
-  data?: IList[]
+  data: IList[];
 }
 
 export interface INewBoard {
   isBoardOpen: boolean;
+}
+
+export interface IActiveBoard {
+  title: null | string;
+  boardId: null | string;
+  isEditingList: boolean;
+}
+
+export interface IList {
+  name: string;
+  listId: string;
+  cards: ICard[];
 }
 
 export interface ICard {
@@ -20,16 +25,4 @@ export interface ICard {
   cardId: string;
   listId: string;
   isArchived: boolean;
-}
-
-export interface IList {
-  name: string;
-  id: string;
-  cards: ICard[];
-}
-
-export interface IActiveBoard {
-  title: null | string;
-  id: null | string;
-  isEditingList: boolean;
 }

@@ -5,17 +5,24 @@ import { storeNewBoardToCollection } from '../../../redux/slices/boardCollection
 
 export const BoardTitleForm = () => {
   const [value, setValue] = useState('');
+  const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
 
   const submitValue = () => {
+    if (value === '') {
+      setError(true);
+      return
+    }
     dispatch(storeNewBoardToCollection(value));
-    dispatch(toggleNewBoard(false))
+    dispatch(toggleNewBoard(false));
     setValue('');
+    setError(false);
   };
 
   return (
     <div>
       <input onChange={(e) => setValue(e.target.value)} value={value} />
+      {error && <p className='error'>Oops! Looks like you forgot the name!</p>}
       <div className='board_active-btn_group'>
         <button
           className='board_active-btn_cancel'

@@ -4,7 +4,7 @@ import { IActiveBoard } from '../../modules/modules';
 
 const initialState: IActiveBoard = {
   title: null,
-  id: null,
+  boardId: null,
   isEditingList: false,
 };
 
@@ -14,7 +14,7 @@ export const activeBoardSlice = createSlice({
   reducers: {
     selectActiveBoard(state, action) {
       state.title = action.payload.title;
-      state.id = action.payload.id;
+      state.boardId = action.payload.id;
     },
     editMode(state) {
       state.isEditingList = true;

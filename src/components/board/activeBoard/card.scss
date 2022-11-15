@@ -126,8 +126,7 @@
       font-size: 19px;
       margin: 0;
     }
-
-    .card_task-done {
+    div {
       padding: 4px 7px;
       opacity: 0.4;
       border: none;
@@ -135,5 +134,9 @@
       cursor: pointer;
       font-size: 16px;
     }
+  }
+  .done {
+    background-color: rgb(202, 255, 222);
+    text-decoration: line-through;
   }
 }

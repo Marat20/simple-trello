@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../redux/redux-hooks';
+import { useAppDispatch } from '../../../../redux/redux-hooks';
 import { Card } from './Card';
-import { submitNewCard } from '../../../../redux/slices/activeBoardDataSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { addNewCard } from '../../../../redux/slices/boardCollectionSlice';
+import { ICard } from '../../../../modules/modules';
+import { useParams } from 'react-router-dom';
 
 interface IProps {
   listId: string;
+  cards: ICard[];
 }
 
-export const CreateCardContainer = ({ listId }: IProps) => {
+export const CreateCardContainer = ({ listId, cards }: IProps) => {
   const [value, setValue] = useState('');
+  const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
-  const activeBoardData = useAppSelector((state) => state.activeBoardData);
+  const { id } = useParams();
 
-  const handleSubmitNewCard = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleSubmitNewCard = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      dispatch(submitNewCard({ value, id: nanoid(), listId }));
+      if (value === '') {
+        setError(true);
+        return
+      }
+      dispatch(addNewCard({ cardName: value, listId, boardId: id }));
+      setValue('');
+      setError(false);
     }
   };
 
@@ -26,8 +35,9 @@ export const CreateCardContainer = ({ listId }: IProps) => {
         value={value}
         onKeyDown={(e) => handleSubmitNewCard(e)}
       />
-      {activeBoardData.map((item) => (
-        <Card key={item.id} {...item} />
+      {error && <p className='error'>give me a name!</p>}
+      {cards.map((item) => (
+        <Card key={item.cardId} {...item} />
       ))}
     </div>
   );
