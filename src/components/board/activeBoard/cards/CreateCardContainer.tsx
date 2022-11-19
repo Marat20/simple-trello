@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useAppDispatch } from '../../../../redux/redux-hooks';
 import { Card } from './Card';
 import { addNewCard } from '../../../../redux/slices/boardCollectionSlice';
@@ -10,7 +10,7 @@ interface IProps {
   cards: ICard[];
 }
 
-export const CreateCardContainer = ({ listId, cards }: IProps) => {
+export const CreateCardContainer = memo(({ listId, cards }: IProps) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ export const CreateCardContainer = ({ listId, cards }: IProps) => {
     if (e.key === 'Enter') {
       if (value === '') {
         setError(true);
-        return
+        return;
       }
       dispatch(addNewCard({ cardName: value, listId, boardId: id }));
       setValue('');
@@ -41,4 +41,4 @@ export const CreateCardContainer = ({ listId, cards }: IProps) => {
       ))}
     </div>
   );
-};
+});

@@ -1,10 +1,10 @@
+import React, { memo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DisableListEditMode } from './DisableListEditMode';
-import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../redux/redux-hooks';
 import { addNewList } from '../../../../redux/slices/boardCollectionSlice';
 
-export const ListEditingMode = () => {
+export const ListEditingMode = memo(() => {
   const { id } = useParams();
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
@@ -36,4 +36,4 @@ export const ListEditingMode = () => {
       <DisableListEditMode />
     </div>
   );
-};
+});

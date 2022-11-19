@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IActiveBoard } from '../../modules/modules';
 
-
 const initialState: IActiveBoard = {
   title: null,
   boardId: null,
@@ -16,6 +15,11 @@ export const activeBoardSlice = createSlice({
       state.title = action.payload.title;
       state.boardId = action.payload.id;
     },
+    resetActiveBoard(state) {
+      state.title = null;
+      state.boardId = null;
+      state.isEditingList = false;
+    },
     editMode(state) {
       state.isEditingList = true;
     },
@@ -25,6 +29,6 @@ export const activeBoardSlice = createSlice({
   },
 });
 
-export const { selectActiveBoard, editMode, stopEditMode } =
+export const { selectActiveBoard, resetActiveBoard, editMode, stopEditMode } =
   activeBoardSlice.actions;
 export default activeBoardSlice.reducer;

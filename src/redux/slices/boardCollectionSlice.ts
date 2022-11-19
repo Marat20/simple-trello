@@ -36,7 +36,6 @@ export const boardCollectionSlice = createSlice({
     archiveCard(state, action) {
       const { boardId, listId, cardId } = action.payload;
       const currentCard = getCard(state, boardId, listId, cardId)!;
-
       currentCard.isArchived = !currentCard.isArchived;
     },
   },

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { toggleNewBoard } from '../../../redux/slices/newBoardSlice';
 import { useAppDispatch } from '../../../redux/redux-hooks';
 import { storeNewBoardToCollection } from '../../../redux/slices/boardCollectionSlice';
 
-export const BoardTitleForm = () => {
+export const BoardTitleForm = memo(() => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
@@ -11,7 +11,7 @@ export const BoardTitleForm = () => {
   const submitValue = () => {
     if (value === '') {
       setError(true);
-      return
+      return;
     }
     dispatch(storeNewBoardToCollection(value));
     dispatch(toggleNewBoard(false));
@@ -35,4 +35,4 @@ export const BoardTitleForm = () => {
       </div>
     </div>
   );
-};
+});

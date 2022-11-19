@@ -1,8 +1,9 @@
 import { useAppDispatch } from '../../../redux/redux-hooks';
 import { BoardTitleForm } from './BoardTitleForm';
 import { toggleNewBoard } from '../../../redux/slices/newBoardSlice';
+import { memo } from 'react';
 
-export const ActiveCreateBoard = () => {
+export const ActiveCreateBoard = memo(() => {
   const dispatch = useAppDispatch();
 
   return (
@@ -14,11 +15,10 @@ export const ActiveCreateBoard = () => {
           onClick={() => dispatch(toggleNewBoard(false))}
         />
       </div>
-
       <div className='board_active-body'>
         <h5>What shall we call the board?</h5>
         <BoardTitleForm />
       </div>
     </div>
   );
-};
+});
