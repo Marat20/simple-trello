@@ -4,7 +4,11 @@
 
 A visual tool for project management.
 
-<img src="./screenshot/screenshot.png"
+<img src="./screenshot/screenshot1.png"
+     alt="Markdown"
+     style="float: left; margin-right: 10px;" />
+     
+<img src="./screenshot/screenshot2.png"
      alt="Markdown"
      style="float: left; margin-right: 10px;" />
 
