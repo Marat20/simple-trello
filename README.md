@@ -14,5 +14,5 @@ A visual tool for project management.
 npm run start
 ```
 
-**Stacks:** HTML, SCSS, TypeScript, ReactJS, React-router-dom, Redux toolkit, Redux-persist
+**Stack:** HTML, SCSS, TypeScript, ReactJS, React-router-dom, Redux toolkit, Redux-persist
 
